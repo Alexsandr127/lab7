@@ -14,7 +14,7 @@ class CurrencyServiceProvider extends ServiceProvider
     {
         parent::register();
 
-        $this->app->bind(CurrencyContract::class, FixerCurrencyService::class);
-
+//        $this->app->bind(CurrencyContract::class, FixerCurrencyService::class);
+        $this->app->bind(CurrencyContract::class, CbRfCurrencyService::class);
     }
 }

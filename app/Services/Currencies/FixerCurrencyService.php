@@ -35,7 +35,9 @@ class FixerCurrencyService implements CurrencyContract
      */
     public function convert(string $from, string $to, float $sum): float
     {
-        return $sum;
+        $responce = $this->callApi('latest')['rates'][$to];
+        $responce2 = $this->callApi('latest')['rates'][$from];
+        return $sum * $responce / $responce2;
     }
 
     /**
